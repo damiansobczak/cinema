@@ -68,12 +68,13 @@
     &__duration {
         color: $color-text-primary;
         font-weight: 600;
-        margin-right: 32px;
+        margin-right: 16px;
     }
 
     &__duration, &__director {
         position: relative;
         padding-left: 16px;
+        font-size: $font-200;
 
         &:before {
             content: "";
