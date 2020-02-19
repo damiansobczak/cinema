@@ -1,0 +1,24 @@
+@import "./assets/styles/base/reset";
+@import "./assets/styles/base/fonts";
+@import "./assets/styles/utils/variables";
+@import "./assets/styles/utils/mixins";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-weight: 400;
+  font-style: normal;
+  background-color: $color-bg-light;
+  margin: 0;
+  font-family: proxima-nova, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: proxima-nova, sans-serif;
+}

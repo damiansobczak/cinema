@@ -1,0 +1,101 @@
+@import "../../assets/styles/utils/variables";
+@import "../../assets/styles/utils/mixins";
+
+.navbar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    box-sizing: border-box;
+    border-bottom: 1px solid $color-neutral-100;
+    background-color: $color-bg;
+    grid-column: span 3;
+    grid-row: span 1;
+
+    &__logo {
+        max-width: 200px;
+        height: auto;
+    }
+
+    &__search {
+        background-color: $color-bg-light;
+        color: #fff;
+        margin-left: 40px;
+        padding: 16px 40px;
+        border-radius: 40px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+        font-size: $font-200;
+
+        &:hover {
+            background-color: lighten($color-bg-light, 3%);
+        }
+    }
+
+    &__actions {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    &__contact {
+        color: #fff;
+        font-weight: 600;
+        background-color: $color-accent;
+        padding: 12px 32px;
+        border-radius: 30px;
+        font-size: $font-200;
+        transition: background-color 0.2s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($color-accent, 2%);
+        }
+    }
+
+    &__notification {
+        color: $color-text-secondary;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        font-size: $font-400;
+        position: relative;
+        margin: 0 16px;
+
+        &:after {
+            content: "2";
+            position: absolute;
+            top: -8px;
+            left: 0;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background-color: $color-accent;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__profile {
+        overflow: hidden;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        margin: 0;
+        padding: 0;
+        
+        img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+}

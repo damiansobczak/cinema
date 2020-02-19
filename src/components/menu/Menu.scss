@@ -1,0 +1,43 @@
+@import "../../assets/styles/utils/variables";
+@import "../../assets/styles/utils/mixins";
+
+.menu {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid $color-neutral-100;
+    background-color: $color-bg;
+    overflow: hidden;
+
+    &__item {
+        margin-bottom: 8px;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        border-radius: 4px;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+        &:hover {
+            color: #fff;
+            background-color: $color-neutral-100;
+        }
+
+        &--active {
+            color: #fff;
+            background-color: $color-neutral-100;
+        }
+    }
+}

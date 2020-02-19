@@ -1,0 +1,29 @@
+$color-accent: #7A54F7;
+
+$color-text-primary: #fff;
+$color-text-secondary: #B4B7C1;
+
+$color-bg: #252633;
+$color-bg-light: #2A2B3B;
+
+//Buttons and icons background, borders
+$color-neutral-100: #303140;
+
+//Seats
+$color-neutral-200: #46475E;
+
+$font-100: 0.7059rem;
+$font-200: 0.8235rem;
+$font-300: 1rem;
+$font-400: 1.176rem;
+$font-500: 1.882rem;
+$font-600: 2.118rem;
+$font-700: 4rem;
+
+$breakpoints: (
+  "xs": 400px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1216px
+);
