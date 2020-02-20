@@ -1,0 +1,47 @@
+@import "../../assets/styles/utils/variables";
+@import "../../assets/styles/utils/mixins";
+
+.reservationSummary {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+
+    &__details {
+        border-top: 1px solid $color-neutral-100;
+        padding-top: 24px;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+        color: #fff;
+    }
+
+    &__label {
+        font-size: $font-200;
+        color: $color-text-secondary;
+        text-transform: uppercase;
+    }
+
+    &__price {
+        font-weight: 700;
+    }
+
+    &__btn {
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 12px 32px;
+        border-radius: 8px;
+        border: 0;
+        outline: 0;
+        background-color: $color-accent;
+        width: 100%;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($color-accent, 3%);
+        }
+    }
+}

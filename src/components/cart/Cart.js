@@ -1,11 +1,14 @@
 import React from "react";
 import "./Cart.scss";
+import Reservation from "../reservation/Reservation";
+import Payment from "../payment/Payment";
 
 class Cart extends React.Component {
     render() {
         return (
             <div className="cart">
-                <div className="cart__label">Cart</div>
+                {/* <Reservation /> */}
+                <Payment />
             </div>
         );
     }

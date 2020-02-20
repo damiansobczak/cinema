@@ -1,0 +1,30 @@
+@import "../../assets/styles/utils/variables";
+@import "../../assets/styles/utils/mixins";
+
+.filmCart {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+
+    &__image {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__details {
+        margin-left: 16px;
+        color: #fff;
+        line-height: 1.2;
+    }
+
+    &__title {
+        font-weight: 700;
+    }
+
+    &__date {
+        color: $color-text-secondary;
+        font-size: $font-200;
+    }
+} 

@@ -1,0 +1,19 @@
+@import "../../assets/styles/utils/variables";
+@import "../../assets/styles/utils/mixins";
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    &__label {
+        color: $color-text-secondary;
+        font-size: $font-200;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    &__group {
+        margin-bottom: 54px;
+    }
+}
