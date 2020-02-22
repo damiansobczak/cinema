@@ -5,7 +5,7 @@ import Poster from "../../assets/images/poster.png";
 class Film extends React.Component {
     render() {
         return (
-            <div className="film">
+            <div className="film" ref={this.props.forwardRef()}>
                 <img src={Poster} alt="" className="film__poster" />
                 <div className="film__details">
                     <div className="film__title">The Irishman</div>

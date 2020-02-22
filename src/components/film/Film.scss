@@ -10,6 +10,8 @@
     overflow: hidden;
     background-color: $color-bg;
     position: relative;
+    opacity: 1;
+    top: 20px;
     
     &::after {
         content: "";

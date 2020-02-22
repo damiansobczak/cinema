@@ -7,8 +7,8 @@ class Cart extends React.Component {
     render() {
         return (
             <div className="cart">
-                {/* <Reservation /> */}
-                <Payment />
+                <Reservation />
+                {/* <Payment /> */}
             </div>
         );
     }

@@ -16,9 +16,9 @@ class App extends React.Component {
         <Menu />
         <Breadcrumbs />
         <Cart />
-        {/* <Films /> */}
-        <Room />
-        <Modal />
+        <Films />
+        {/* <Room /> */}
+        {/* <Modal /> */}
       </div>
     );
   }
