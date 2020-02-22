@@ -6,6 +6,7 @@ import Breadcrumbs from "./components/breadcrumbs/Breadcrumbs";
 import Cart from "./components/cart/Cart";
 import Films from "./components/films/Films";
 import Room from "./components/Room/Room";
+import Modal from "./components/modal/Modal";
 
 class App extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class App extends React.Component {
         <Cart />
         {/* <Films /> */}
         <Room />
+        <Modal />
       </div>
     );
   }
