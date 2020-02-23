@@ -10,6 +10,10 @@ class Room extends React.Component {
         this.elements = [];
     }
 
+    selectSeat = (e) => {
+        e.target.offsetParent.classList.toggle('room__seat--selected')
+    }
+
     componentDidMount() {
         this.Tween
             .from(".room__seat", 1, {
@@ -33,9 +37,9 @@ class Room extends React.Component {
             <div className="room">
                 <div className="room__wrapper">
                     <img src={Screen} alt="" className="room__screen" />
-                    <div className="room__seats">
+                    <div className="room__seats" onClick={e => this.selectSeat(e)}>
                         {x.map((seat, index) => (
-                            <div className="room__seat">
+                            <div className="room__seat" key={index}>
                                 <span className="icon-seat"></span>
                             </div>
                         ))}

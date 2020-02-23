@@ -22,7 +22,7 @@ class EmptyCart extends React.Component {
             <div className="emptyCart">
                 <img src={Image} alt="" className="emptyCart__image" ref={e => this.image = e} />
                 <div className="emptyCart__title" ref={e => this.title = e}>Cart is Empty :(</div>
-                <div className="emptyCart__info" ref={e => this.info = e}>Select abailable seats to continue</div>
+                <div className="emptyCart__info" ref={e => this.info = e}>Select available seats to continue</div>
             </div>
         );
     }

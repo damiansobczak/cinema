@@ -33,16 +33,20 @@
         justify-content: center;
         color: #46475E;
 
+        &:hover {
+            .icon-seat {
+                color: #B1B4F2;
+            }
+        }
+
         .icon-seat {
             font-size: 2rem;
             cursor: pointer;
             transition: color 0.2s ease-in-out;
         }
 
-        &:hover {
-            .icon-seat {
-                color: #B1B4F2;
-            }
+        &--selected {
+            color: #B1B4F2;
         }
     }
 
