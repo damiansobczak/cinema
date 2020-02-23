@@ -37,7 +37,7 @@ export const getFilms = () => {
             "poster": Poster4,
             "title": "Bad Boys for Life",
             "desc": "The Bad Boys Mike Lowrey and Marcus Burnett are back together for one last ride in the highly anticipated Bad Boys for Life.",
-            "duration": "2h 04mins",
+            "duration": "2h 04min",
             "director": "Adil El Arbi",
             "showTime": ["11:30", "18:00", "20:00"]
         }

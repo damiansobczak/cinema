@@ -2,12 +2,16 @@
 @import "../../assets/styles/utils/mixins"; 
 
 .room {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden;
+    
+    &__wrapper {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
 
     &__screen {
         max-width: 650px;
