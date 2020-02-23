@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.scss";
 import Logo from "../../assets/images/logo.svg";
-import Avatar from "../../assets/images/avatar.jpg";
+import Avatar from "../../assets/images/avatar.png";
 
 class Navbar extends React.Component {
     render() {

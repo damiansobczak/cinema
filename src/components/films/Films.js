@@ -28,10 +28,7 @@ class Films extends React.Component {
     render() {
         return (
             <div className="films">
-                {this.state.films ? this.state.films.map((film, index) => <Film key={film.id} forwardRef={() => {
-                    this.elements[index] = React.createRef()
-                    return this.elements[index];
-                }} />) : ''}
+                {this.state.films ? this.state.films.map((film, index) => <Film key={film.id} id={film.id} poster={film.poster} title={film.title} desc={film.desc} duration={film.duration} director={film.director} showTime={film.showTime} forwardRef={() => this.elements[index] = React.createRef()} />) : ''}
             </div>
         );
     }
