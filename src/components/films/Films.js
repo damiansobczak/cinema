@@ -3,21 +3,24 @@ import "./Films.scss";
 import Film from "../film/Film";
 import { TimelineLite, Power2 } from "gsap";
 import { getFilms } from "../../helpers/filmsAPI";
+import { StateContext } from "../../StateContext";
 
 class Films extends React.Component {
-    constructor(props) {
-        super(props);
+    static contextType = StateContext;
+
+    constructor(props, context) {
+        super(props, context);
         this.myTween = new TimelineLite();
         this.elements = [];
-    }
-
-    state = {
-        films: []
+        this.state = {
+            films: [],
+            film: null
+        };
     }
 
     componentDidMount() {
         const films = getFilms();
-        this.setState({ films });
+        this.setState({ films, film: this.context.film });
     }
 
     componentDidUpdate() {
