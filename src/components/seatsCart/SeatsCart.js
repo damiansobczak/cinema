@@ -2,16 +2,16 @@ import React from "react";
 import "./SeatsCart.scss";
 import { getSeats } from "../../helpers/seatsAPI";
 import { TimelineLite, Power2 } from "gsap";
+import { StateContext } from "../../StateContext";
 
 class SeatsCart extends React.Component {
-    constructor(props) {
-        super(props);
+    static contextType = StateContext;
+
+    constructor(props, context) {
+        super(props, context);
         this.myTween = new TimelineLite();
         this.elements = [];
-    }
-
-    state = {
-        seats: []
+        this.state = { seats: [] };
     }
 
     componentDidMount() {

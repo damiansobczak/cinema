@@ -23,7 +23,7 @@ class App extends React.Component {
         chooseFilm: (film) => {
           this.setState({ film });
         },
-        film: this.state
+        film: this.state.film
       }}>
         <div className="app">
           <Navbar />
