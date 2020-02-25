@@ -21,15 +21,15 @@
         transform: translateY(-50%);
         width: 3px;
         height: 0;
-        opacity: 0;
-        background-color: $color-accent;
+        opacity: 1;
+        background-color: rgba($color-accent, 0);
         transition: all 0.2s ease-in-out;
     }
     
     &:hover {
         &::after {
             height: 70%;
-            opacity: 100%;
+            background-color: rgba($color-accent, 1);
         }
     }
 
