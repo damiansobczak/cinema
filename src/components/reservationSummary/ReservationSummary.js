@@ -6,7 +6,7 @@ class ReservationSummary extends React.Component {
     ref = React.createRef();
 
     componentDidMount() {
-        TweenMax.from(this.ref.current, 0.8, { ease: Power2.easeInOut, y: 80, opacity: 0 });
+        TweenMax.from(this.ref.current, 0.8, { ease: Power2.easeInOut, y: 80, opacity: 0, delay: 0.3 });
     }
 
     render() {

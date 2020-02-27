@@ -3,13 +3,15 @@ import "./Reservation.scss";
 import FilmCart from "../filmCart/FilmCart";
 import SeatsCart from "../seatsCart/SeatsCart";
 import ReservationSummary from "../reservationSummary/ReservationSummary";
-import { TweenMax, Power2 } from "gsap";
+import { TimelineLite, TweenMax, Power2 } from "gsap";
 
 class Reservation extends React.Component {
     ref = React.createRef();
 
     componentDidMount() {
-        TweenMax.from(this.ref.current, 0.8, { ease: Power2.easeInOut, x: 80, opacity: 0 });
+        const Tween = new TimelineLite();
+        Tween.staggerFrom('.reservation__label', 0.8, { ease: Power2.easeInOut, x: 100, opacity: 0 }, 0.4);;
+        TweenMax.from(this.ref.current, 0.8, { ease: Power2.easeInOut, x: 80, opacity: 0, delay: 0.3 });
     }
     render() {
         return (

@@ -11,7 +11,7 @@ class Room extends React.Component {
     }
 
     selectSeat = (e) => {
-        e.target.offsetParent.classList.toggle('room__seat--selected')
+        e.target.offsetParent.classList.toggle('room__seat--selected');
     }
 
     componentDidMount() {

@@ -20,7 +20,7 @@ class SeatsCart extends React.Component {
     }
 
     componentDidUpdate() {
-        this.myTween.staggerFrom(this.elements, 0.8, { ease: Power2.easeInOut, x: 40, opacity: 0 }, 0.07);
+        this.myTween.staggerFrom(this.elements, 0.8, { ease: Power2.easeInOut, x: 40, opacity: 0, delay: 0.5 }, 0.07);
     }
 
     render() {

@@ -6,13 +6,12 @@
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
+    overflow: hidden;
     display: grid;
     grid-template-columns: repeat(2, minmax(500px, 1fr));
     grid-auto-rows: minmax(280px, 300px);
     grid-gap: 30px;
     padding: 30px;
-    overflow-y: auto;
-    overflow-x: hidden;
     scrollbar-width: thin;
 
     @include breakpoint-down(lg) {

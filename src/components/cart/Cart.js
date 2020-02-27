@@ -16,7 +16,6 @@ class Cart extends React.Component {
     render() {
         let value = this.context;
         let getView = () => {
-            console.log(value.film);
             if (value.film !== null) {
                 return <Reservation />
             }
