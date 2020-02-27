@@ -10,8 +10,8 @@ class Reservation extends React.Component {
 
     componentDidMount() {
         const Tween = new TimelineLite();
-        Tween.staggerFrom('.reservation__label', 0.8, { ease: Power2.easeInOut, x: 100, opacity: 0 }, 0.4);;
-        TweenMax.from(this.ref.current, 0.8, { ease: Power2.easeInOut, x: 80, opacity: 0, delay: 0.3 });
+        Tween.staggerFrom('.reservation__label', 0.8, { ease: Power2.easeInOut, x: 60, opacity: 0, delay: 0.2 }, 0.2);
+        TweenMax.from(this.ref.current, 0.8, { ease: Power2.easeInOut, x: 50, opacity: 0, delay: 0.3 });
     }
     render() {
         return (
