@@ -1,21 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Room.scss";
 import Screen from "../../assets/images/screen.svg";
 import { TimelineLite, Power2 } from "gsap";
 
-class Room extends React.Component {
-    constructor(props) {
-        super(props);
-        this.Tween = new TimelineLite();
-        this.elements = [];
-    }
-
-    selectSeat = (e) => {
+export default function Room() {
+    const selectSeat = (e) => {
         e.target.offsetParent.classList.toggle('room__seat--selected');
     }
 
-    componentDidMount() {
-        this.Tween
+    useEffect(() => {
+        let Tween = new TimelineLite();
+        Tween
             .from(".room__seat", 1, {
                 scale: 0.1, opacity: 0, ease: Power2.easeInOut,
                 stagger: {
@@ -26,42 +21,38 @@ class Room extends React.Component {
             }, "Start")
             .from(".room__wrapper", 1, { ease: Power2.easeInOut, scale: 3 }, "Start")
             .from(".room__legend", 0.4, { ease: Power2.easeInOut, y: 10, opacity: 0 }, "Start+=0.8");
-    }
+    }, []);
 
-    render() {
-        let x = [];
-        for (let i = 0; i < 220; i++) {
-            x.push(i);
-        }
-        return (
-            <div className="room">
-                <div className="room__wrapper">
-                    <img src={Screen} alt="" className="room__screen" />
-                    <div className="room__seats" onClick={e => this.selectSeat(e)}>
-                        {x.map((seat, index) => (
-                            <div className="room__seat" key={index}>
-                                <span className="icon-seat"></span>
-                            </div>
-                        ))}
+    let x = [];
+    for (let i = 0; i < 220; i++) {
+        x.push(i);
+    }
+    return (
+        <div className="room">
+            <div className="room__wrapper">
+                <img src={Screen} alt="" className="room__screen" />
+                <div className="room__seats" onClick={e => selectSeat(e)}>
+                    {x.map((seat, index) => (
+                        <div className="room__seat" key={index}>
+                            <span className="icon-seat"></span>
+                        </div>
+                    ))}
+                </div>
+                <div className="room__legend">
+                    <div className="room__legend__item room__legend__item--reservation">
+                        <span className="icon-seat"></span>
+                        <div className="room__legend__label">Reservation</div>
                     </div>
-                    <div className="room__legend">
-                        <div className="room__legend__item room__legend__item--reservation">
-                            <span className="icon-seat"></span>
-                            <div className="room__legend__label">Reservation</div>
-                        </div>
-                        <div className="room__legend__item">
-                            <span className="icon-seat"></span>
-                            <div className="room__legend__label">Available</div>
-                        </div>
-                        <div className="room__legend__item room__legend__item--selection">
-                            <span className="icon-seat"></span>
-                            <div className="room__legend__label">Selection</div>
-                        </div>
+                    <div className="room__legend__item">
+                        <span className="icon-seat"></span>
+                        <div className="room__legend__label">Available</div>
+                    </div>
+                    <div className="room__legend__item room__legend__item--selection">
+                        <span className="icon-seat"></span>
+                        <div className="room__legend__label">Selection</div>
                     </div>
                 </div>
-            </div >
-        );
-    }
+            </div>
+        </div >
+    );
 }
-
-export default Room;

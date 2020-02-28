@@ -1,31 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./EmptyCart.scss";
 import Image from "../../assets/images/emptyCart.svg";
 import { TweenMax, TimelineLite, Power2 } from "gsap";
 
-class EmptyCart extends React.Component {
-    constructor(props) {
-        super(props);
-        this.myTween = new TimelineLite();
-    }
+export default function EmptyCart(props) {
+    let image = React.createRef();
+    let title = React.createRef();
+    let info = React.createRef();
 
-    image = React.createRef();
-    title = React.createRef();
-    info = React.createRef();
+    useEffect(() => {
+        const myTween = new TimelineLite();
+        myTween.staggerFrom([image, title, info], 0.8, { ease: Power2.easeInOut, opacity: 0, y: 80 }, 0.04);
+    })
 
-    componentDidMount() {
-        this.myTween.staggerFrom([this.image, this.title, this.info], 0.8, { ease: Power2.easeInOut, opacity: 0, y: 80 }, 0.04)
-    }
-
-    render() {
-        return (
-            <div className="emptyCart">
-                <img src={Image} alt="" className="emptyCart__image" ref={e => this.image = e} />
-                <div className="emptyCart__title" ref={e => this.title = e}>Cart is Empty :(</div>
-                <div className="emptyCart__info" ref={e => this.info = e}>Select available seats to continue</div>
-            </div>
-        );
-    }
+    return (
+        <div className="emptyCart">
+            <img src={Image} alt="" className="emptyCart__image" ref={e => image = e} />
+            <div className="emptyCart__title" ref={e => title = e}>Cart is Empty :(</div>
+            <div className="emptyCart__info" ref={e => info = e}>Select available seats to continue</div>
+        </div>
+    );
 }
-
-export default EmptyCart;

@@ -1,39 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Cart.scss";
 import Reservation from "../reservation/Reservation";
-import Payment from "../payment/Payment";
 import EmptyCart from "../emptyCart/EmptyCart";
 import { StateContext } from "../../StateContext";
 
-class Cart extends React.Component {
-    static contextType = StateContext;
-
-    constructor(props, context) {
-        super(props, context);
-        this.state = { film: context.film }
+export default function Cart() {
+    const value = useContext(StateContext);
+    function getView() {
+        if (value.film !== null) {
+            return <Reservation />
+        }
+        if (value.card !== null) {
+            return <EmptyCart />
+        }
+        return <EmptyCart />;
     }
-
-    render() {
-        let value = this.context;
-        let getView = () => {
-            if (value.film !== null) {
-                return <Reservation />
-            }
-            if (value.card !== null) {
-                return <EmptyCart />
-            }
-            return <EmptyCart />;
-        };
-        return (
-            <StateContext.Consumer>
-                {value => (
-                    <div className="cart">
-                        {getView()}
-                    </div>
-                )}
-            </StateContext.Consumer>
-        );
-    }
+    return (
+        <div className="cart">
+            {getView()}
+        </div>
+    );
 }
-
-export default Cart;
