@@ -12,7 +12,7 @@ export default function Reservation() {
         const Tween = new TimelineLite();
         Tween.staggerFrom('.reservation__label', 0.8, { ease: Power2.easeInOut, x: 60, opacity: 0, delay: 0.2 }, 0.2);
         TweenMax.from(ref.current, 0.8, { ease: Power2.easeInOut, x: 50, opacity: 0, delay: 0.3 });
-    });
+    }, []);
 
     return (
         <div className="reservation">

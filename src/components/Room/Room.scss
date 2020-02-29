@@ -52,6 +52,11 @@
         &--selected {
             color: #B1B4F2;
         }
+
+        &--disabled {
+            pointer-events: none;
+            opacity: 0;
+        }
     }
 
     &__legend {

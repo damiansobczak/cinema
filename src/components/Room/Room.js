@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import "./Room.scss";
 import Screen from "../../assets/images/screen.svg";
 import { TimelineLite, Power2 } from "gsap";
+import { getRoom } from "../../helpers/roomAPI";
+import { StateContext } from "../../StateContext";
 
 export default function Room() {
+    const { chooseSeat, deleteSeat } = useContext(StateContext);
     const selectSeat = (e) => {
-        e.target.offsetParent.classList.toggle('room__seat--selected');
+        const target = e.target.offsetParent;
+        target.classList.toggle('room__seat--selected');
+        target.classList.contains('room__seat--selected') ? chooseSeat(target.dataset.seat, target.dataset.row) : deleteSeat(target.dataset.seat, target.dataset.row);
     }
 
     useEffect(() => {
@@ -23,20 +28,25 @@ export default function Room() {
             .from(".room__legend", 0.4, { ease: Power2.easeInOut, y: 10, opacity: 0 }, "Start+=0.8");
     }, []);
 
-    let x = [];
-    for (let i = 0; i < 220; i++) {
-        x.push(i);
-    }
+    const room = getRoom();
     return (
         <div className="room">
             <div className="room__wrapper">
                 <img src={Screen} alt="" className="room__screen" />
                 <div className="room__seats" onClick={e => selectSeat(e)}>
-                    {x.map((seat, index) => (
-                        <div className="room__seat" key={index}>
-                            <span className="icon-seat"></span>
-                        </div>
-                    ))}
+                    {room.map((seats, row) => {
+                        let empty = 0;
+                        return seats.map((seat, column) => {
+                            if (seat === 0) {
+                                empty = empty + 1;
+                            }
+                            return (
+                                <div className={`room__seat ${seat === 0 ? `room__seat--disabled` : ``}`} data-row={row + 1} data-seat={column + 1 - empty} key={column}>
+                                    <span className="icon-seat"></span>
+                                </div>
+                            );
+                        })
+                    })}
                 </div>
                 <div className="room__legend">
                     <div className="room__legend__item room__legend__item--reservation">

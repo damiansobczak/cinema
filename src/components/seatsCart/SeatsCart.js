@@ -1,6 +1,5 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import "./SeatsCart.scss";
-import { getSeats } from "../../helpers/seatsAPI";
 import { TimelineLite, Power2 } from "gsap";
 import { StateContext } from "../../StateContext";
 
@@ -15,9 +14,8 @@ export default function SeatsCart() {
 
     return (
         <div className="seatsCart">
-            {}
-            {reservation.map((item, index) => (
-                <div className="seatsCart__item" key={item.id} ref={el => elements[index] = el}>
+            {reservation && reservation.map((item, index) => (
+                <div className="seatsCart__item" key={index} ref={el => elements[index] = el}>
                     <button className="seatsCart__close"><span className="icon-x"></span></button>
                     <span className="seatsCart__icon icon-seat"></span>
                     <div className="seatsCart__price">{item.price}</div>

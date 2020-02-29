@@ -11,33 +11,24 @@ import { StateContext } from "./StateContext";
 export default function App() {
   const context = useContext(StateContext);
   const [film, setFilm] = useState(null);
+  const [reservation, setReservation] = useState(context.reservation);
 
   return (
     <StateContext.Provider value={{
       chooseFilm: (film) => {
         setFilm(film);
       },
+      chooseSeat: (seat, row) => {
+        setReservation([...reservation, { price: '$10', seat, row }])
+      },
+      deleteSeat: (seat, row) => {
+        const res = reservation.filter(item => {
+          return item.seat !== seat && item.row !== row;
+        });
+        setReservation(res);
+      },
       film: film,
-      reservation: [
-        {
-          "id": 0,
-          "price": "$10",
-          "seat": "12",
-          "row": "7"
-        },
-        {
-          "id": 1,
-          "price": "$10",
-          "seat": "13",
-          "row": "7"
-        },
-        {
-          "id": 2,
-          "price": "$10",
-          "seat": "14",
-          "row": "7"
-        }
-      ]
+      reservation: reservation
     }}>
       <div className="app">
         <Navbar />
