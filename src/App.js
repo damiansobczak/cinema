@@ -23,7 +23,7 @@ export default function App() {
       },
       deleteSeat: (seat, row) => {
         const res = reservation.filter(item => {
-          return item.seat !== seat && item.row !== row;
+          return !(item.seat == seat && item.row == row);
         });
         setReservation(res);
       },
