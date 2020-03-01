@@ -5,7 +5,7 @@ import { StateContext } from "../../StateContext";
 
 export default function ReservationSummary(props) {
     let ref = React.createRef();
-    const { reservation } = useContext(StateContext);
+    const { reservation, choosePayment } = useContext(StateContext);
     const [price, setPrice] = useState(0);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function ReservationSummary(props) {
                 <div className="reservationSummary__label">Total</div>
                 <div className="reservationSummary__price">${price}</div>
             </div>
-            <button className="reservationSummary__btn">{props.action}</button>
+            <button className="reservationSummary__btn" onClick={e => choosePayment()}>{props.action}</button>
         </div>
     );
 }

@@ -9,6 +9,9 @@ export default function Room() {
     const { chooseSeat, deleteSeat } = useContext(StateContext);
     const selectSeat = (e) => {
         const target = e.target.offsetParent;
+        if (!target.classList.contains('room__seat')) {
+            return;
+        }
         target.classList.toggle('room__seat--selected');
         target.classList.contains('room__seat--selected') ? chooseSeat(target.dataset.seat, target.dataset.row) : deleteSeat(target.dataset.seat, target.dataset.row);
     }

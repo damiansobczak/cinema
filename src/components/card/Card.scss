@@ -23,7 +23,7 @@
         border-radius: 4px;
         color: #fff;
         font-weight: 600;
-        letter-spacing: 5px;
+        letter-spacing: 4px;
     }
 
     &__label {
@@ -65,6 +65,7 @@
         position: absolute;
         left: 16px;
         top: 60px;
+        transition: all 0.4s ease-in-out;
     }
 
     &__group {

@@ -10,8 +10,11 @@ import { StateContext } from "./StateContext";
 
 export default function App() {
   const context = useContext(StateContext);
+  const [card, setCard] = useState(context.card);
   const [film, setFilm] = useState(null);
   const [reservation, setReservation] = useState(context.reservation);
+  const [payment, setPayment] = useState(context.payment);
+  const [modal, setModal] = useState(context.success);
 
   return (
     <StateContext.Provider value={{
@@ -27,8 +30,22 @@ export default function App() {
         });
         setReservation(res);
       },
+      choosePayment: () => {
+        if (reservation.length && !payment && !card) {
+          setPayment(true);
+        }
+        if (payment && reservation.length && card) {
+          setModal(true);
+        }
+      },
+      fillCard: (details) => {
+        setCard(details);
+      },
+      success: modal,
       film: film,
-      reservation: reservation
+      payment: payment,
+      reservation: reservation,
+      card: card
     }}>
       <div className="app">
         <Navbar />
@@ -36,7 +53,7 @@ export default function App() {
         <Breadcrumbs />
         <Cart />
         <Wrapper />
-        {context.success && <Modal />}
+        {modal && <Modal />}
       </div>
     </StateContext.Provider>
   );

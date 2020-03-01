@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Modal.scss";
 import Image from "../../assets/images/success.svg";
 import { TweenMax, Power2 } from "gsap";
+import { StateContext } from "../../StateContext";
 
 export default function Modal() {
     let modal = React.createRef();

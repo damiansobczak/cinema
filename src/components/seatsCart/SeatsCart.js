@@ -20,7 +20,6 @@ export default function SeatsCart() {
         <div className="seatsCart">
             {reservation && reservation.map((item, index) => (
                 <div className="seatsCart__item" key={index} ref={el => elements[index] = el}>
-                    <button className="seatsCart__close"><span className="icon-x"></span></button>
                     <span className="seatsCart__icon icon-seat"></span>
                     <div className="seatsCart__price">{item.price}</div>
                     <div className="seatsCart__seat">Seat: <span>{item.seat}</span></div>
