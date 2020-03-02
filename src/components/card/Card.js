@@ -58,7 +58,7 @@ export default function Card(props) {
 
             <div className="card__group" ref={e => number = e}>
                 <label htmlFor="card__input">Card Number</label>
-                <input id="card__input" type="text" className="card__input" onFocus={() => setHighlight({ left: '16px', top: '60px' })} onChange={e => setCardNumber(e.target.value)} />
+                <input id="card__input" type="text" className="card__input" onFocus={() => setHighlight({ left: '16px', top: '60px' })} onChange={e => setCardNumber(e.target.value.replace(/\d{4}(?!$)/gi, '**** '))} />
             </div>
             <div className="card__group" ref={e => owner = e}>
                 <label htmlFor="card__input">Owner</label>
