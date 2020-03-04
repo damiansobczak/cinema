@@ -13,6 +13,7 @@
     grid-gap: 30px;
     padding: 30px;
     scrollbar-width: thin;
+    will-change: transform;
 
     @include breakpoint-down(lg) {
         grid-template-columns: 1fr;

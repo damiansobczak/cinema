@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./Card.scss";
 import CardImage from "../../assets/images/card.svg";
-import { TimelineLite, TweenMax, Power2 } from "gsap";
+import { TimelineLite, Power2 } from "gsap";
 import { StateContext } from "../../StateContext";
 
 export default function Card(props) {
@@ -66,7 +66,7 @@ export default function Card(props) {
             </div>
             <div className="card__group" ref={e => date = e}>
                 <label htmlFor="card__input">Expire Date</label>
-                <input id="card__input" type="text" className="card__input" onFocus={() => setHighlight({ left: `176px`, top: `120px`, width: `70px` })} onChange={e => setCardDate(e.target.value)} />
+                <input id="card__input" type="text" className="card__input" onFocus={() => setHighlight({ left: `178px`, top: `120px`, width: `70px` })} onChange={e => setCardDate(e.target.value.replace(/(\d{2})\/?(\d{2}).*/, '$1/$2'))} />
             </div>
         </div>
     );

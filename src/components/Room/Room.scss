@@ -15,6 +15,7 @@
         align-items: center;
         overflow-x: auto;
         overflow-y: hidden;
+        will-change: transform;
     }
 
     &__screen {
@@ -36,6 +37,7 @@
         align-items: center;
         justify-content: center;
         color: #46475E;
+        will-change: transform;
 
         &:hover {
             .icon-seat {

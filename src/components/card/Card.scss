@@ -24,6 +24,10 @@
         color: #fff;
         font-weight: 600;
         letter-spacing: 4px;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     &__label {
@@ -33,6 +37,11 @@
 
     &__value {
         font-size: 1rem;
+        height: 16px;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     &__owner {
@@ -41,6 +50,7 @@
         bottom: 16px;
         padding: 8px;
         border-radius: 4px;
+        max-width: 140px;
         color: #fff;
         font-weight: 600;
         font-size: $font-200;
@@ -55,6 +65,7 @@
         color: #fff;
         font-weight: 600;
         font-size: $font-200;
+        max-width: 70px;
     }
 
     &__highlight {
