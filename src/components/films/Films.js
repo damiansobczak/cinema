@@ -6,24 +6,21 @@ import { getFilms } from "../../helpers/filmsAPI";
 import { StateContext } from "../../StateContext";
 
 export default function Films(props) {
-    const [state, setState] = useState({
-        film: [],
-        film: null
-    });
-    const context = useContext(StateContext);
+    const [state, setState] = useState({ films: [], film: null });
+    const { film } = useContext(StateContext);
     const films = React.createRef();
     let elements = [];
     let myTween = new TimelineLite();
 
     useEffect(() => {
         const films = getFilms();
-        setState({ films, film: context.film });
+        setState({ films, film });
     }, []);
 
     useEffect(() => {
-        if (context.film) {
+        if (film) {
             TweenMax.to(films.current, 0.8, { ease: Power2.easeInOut, scale: 0.2, opacity: 0 });
-        } else if (!context.film) {
+        } else if (!film) {
             const filmElements = elements.map(element => element.current);
             myTween.staggerFrom(filmElements, 0.8, { ease: Power2.easeInOut, y: 40, opacity: 0 }, 0.03);
         }

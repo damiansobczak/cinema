@@ -6,13 +6,13 @@ import Payment from "../payment/Payment";
 import { StateContext } from "../../StateContext";
 
 export default function Cart() {
-    const value = useContext(StateContext);
+    const { payment, film } = useContext(StateContext);
 
     function getView() {
-        if (value.film !== null && value.payment === false) {
+        if (film !== null && payment === false) {
             return <Reservation />
         }
-        if (value.film !== null && value.payment) {
+        if (film !== null && payment) {
             return <Payment />
         }
         return <EmptyCart />;

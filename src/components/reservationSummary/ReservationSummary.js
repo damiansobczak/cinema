@@ -13,10 +13,7 @@ export default function ReservationSummary(props) {
     }, []);
 
     useEffect(() => {
-        const newPrice = reservation.reduce((a, reservation) => {
-            return Number(a) + Number(reservation.price.replace(/\$/, ''));
-        }, 0);
-        setPrice(newPrice);
+        setPrice(reservation.reduce((a, reservation) => Number(a) + Number(reservation.price.replace(/\$/, '')), 0));
     }, [reservation.join(",")]);
 
     return (

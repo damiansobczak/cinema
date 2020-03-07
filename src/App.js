@@ -14,7 +14,7 @@ export default function App() {
   const [film, setFilm] = useState(null);
   const [reservation, setReservation] = useState(context.reservation);
   const [payment, setPayment] = useState(context.payment);
-  const [modal, setModal] = useState(context.success);
+  const [modal, setModal] = useState(context.modal);
 
   return (
     <StateContext.Provider value={{
@@ -41,7 +41,10 @@ export default function App() {
       fillCard: (details) => {
         setCard(details);
       },
-      success: modal,
+      toggleModal: () => {
+        setModal(!modal);
+      },
+      modal: modal,
       film: film,
       payment: payment,
       reservation: reservation,

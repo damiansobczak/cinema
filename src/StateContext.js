@@ -1,7 +1,7 @@
 import React from "react";
 
 export const StateContext = React.createContext({
-    success: false,
+    modal: false,
     reservation: [],
     film: null,
     card: null,

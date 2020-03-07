@@ -5,15 +5,9 @@ import { TimelineLite, Power2 } from "gsap";
 import { StateContext } from "../../StateContext";
 
 export default function Card(props) {
-    const { card, fillCard } = useContext(StateContext);
-    let cardPlaceholder = React.createRef();
-    let number = React.createRef();
-    let owner = React.createRef();
-    let date = React.createRef();
-
-    let numberOnCard = React.createRef();
-    let ownerOnCard = React.createRef();
-    let dateOnCard = React.createRef();
+    const { fillCard } = useContext(StateContext);
+    let { cardPlaceholder, number, owner, date } = React.createRef();
+    let { numberOnCard, ownerOnCard, dateOnCard } = React.createRef();
 
     const [cardNumber, setCardNumber] = useState('**** **** **** 0000');
     const [cardOwner, setCardOwner] = useState('Jan Kowalski');
@@ -34,11 +28,6 @@ export default function Card(props) {
         });
         fillCard(cardState);
     }, [[cardNumber, cardOwner, cardDate].join(",")]);
-
-    setTimeout(() => {
-        console.log(ownerOnCard);
-
-    }, 100);
 
     return (
         <div className="card">

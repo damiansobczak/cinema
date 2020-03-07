@@ -4,9 +4,7 @@ import Image from "../../assets/images/emptyCart.svg";
 import { TweenMax, TimelineLite, Power2 } from "gsap";
 
 export default function EmptyCart(props) {
-    let image = React.createRef();
-    let title = React.createRef();
-    let info = React.createRef();
+    let { image, title, info } = React.createRef();
 
     useEffect(() => {
         const myTween = new TimelineLite();

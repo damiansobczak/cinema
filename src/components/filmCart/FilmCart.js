@@ -5,6 +5,7 @@ import { StateContext } from "../../StateContext";
 
 export default function FilmCart(props) {
     const { film } = useContext(StateContext);
+
     return (
         <div className="filmCart" ref={props.forwardRef}>
             <img src={film.poster ? film.poster : Image} className="filmCart__image" />
