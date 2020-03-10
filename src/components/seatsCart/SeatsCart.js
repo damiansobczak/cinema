@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import "./SeatsCart.scss";
 import { TweenMax, TimelineLite, Power2 } from "gsap";
 import { StateContext } from "../../StateContext";
 
 export default function SeatsCart() {
     const { reservation } = useContext(StateContext);
+    const [prevContext, saveContext] = useState(reservation);
     const elements = [];
 
     useEffect(() => {
@@ -13,8 +14,11 @@ export default function SeatsCart() {
     }, []);
 
     useEffect(() => {
-        TweenMax.from(elements[elements.length - 1], 0.4, { ease: Power2.easeInOut, x: 40, opacity: 0 });
-    }, [reservation.join(",")]);
+        if (prevContext.length < reservation.length) {
+            TweenMax.from(elements[elements.length - 1], 0.4, { ease: Power2.easeInOut, x: 40, opacity: 0 });
+            saveContext(reservation);
+        }
+    }, [reservation]);
 
     return (
         <div className="seatsCart">

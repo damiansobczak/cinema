@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import "./Films.scss";
 import Film from "../film/Film";
 import { TweenMax, TimelineLite, Power2 } from "gsap";
@@ -8,7 +8,7 @@ import { StateContext } from "../../StateContext";
 export default function Films(props) {
     const [state, setState] = useState({ films: [], film: null });
     const { film } = useContext(StateContext);
-    const films = React.createRef();
+    const films = useRef(null);
     let elements = [];
     let myTween = new TimelineLite();
 
