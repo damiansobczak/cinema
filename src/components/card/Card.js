@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
-import "./Card.scss";
 import CardImage from "../../assets/images/card.svg";
-import { TimelineLite, Power2 } from "gsap";
+import "./Card.scss";
+import { gsap, TimelineLite, Power2 } from "gsap";
 import { StateContext } from "../../StateContext";
 
 export default function Card(props) {
     const { fillCard } = useContext(StateContext);
-    let { cardPlaceholder, number, owner, date } = React.createRef();
+    let { cardPlaceholder, number, owner, date, card } = React.createRef();
     let { numberOnCard, ownerOnCard, dateOnCard } = React.createRef();
 
     const [cardNumber, setCardNumber] = useState('**** **** **** 0000');
@@ -16,8 +16,9 @@ export default function Card(props) {
     const [highlight, setHighlight] = useState({ left: '16px', top: '60px' });
 
     useEffect(() => {
+        gsap.set(card, { opacity: 1, delay: 0.2 });
         const Tween = new TimelineLite();
-        Tween.staggerFrom([cardPlaceholder, number, owner, date], 0.8, { ease: Power2.easeInOut, x: 60, opacity: 0 }, 0.05);
+        Tween.staggerFrom([cardPlaceholder, number, owner, date], 0.8, { ease: Power2.easeInOut, x: 60, opacity: 0, delay: 0.2 }, 0.05);
     }, []);
 
     useEffect(() => {
@@ -30,7 +31,7 @@ export default function Card(props) {
     }, [[cardNumber, cardOwner, cardDate].join(",")]);
 
     return (
-        <div className="card">
+        <div className="card" ref={e => card = e}>
             <div className="card__placeholder" ref={e => cardPlaceholder = e}>
                 <img src={CardImage} alt="Card payment details" className="card__image" />
                 <div className="card__number" ref={e => numberOnCard = e}>{cardNumber}</div>
