@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, memo } from "react";
 import "./Payment.scss";
 import ReservationSummary from "../reservationSummary/ReservationSummary";
 import Card from "../card/Card";
 import { TweenMax, Power2 } from "gsap";
 
-export default function Payment() {
-    let label = React.createRef();
+export const Payment = memo(() => {
+    let label = useRef(null);
 
     useEffect(() => {
-        TweenMax.from(label, 0.7, { ease: Power2.easeInOut, x: 60, opacity: 0 });
+        TweenMax.from(label, 0.7, { ease: Power2.easeInOut, x: 60, opacity: 0, delay: 0.2 });
     }, []);
     return (
         <div className="payment">
@@ -19,4 +19,4 @@ export default function Payment() {
             <ReservationSummary action="Pay now!" price="$20" />
         </div>
     );
-}
+});

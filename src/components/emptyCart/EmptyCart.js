@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import "./EmptyCart.scss";
 import Image from "../../assets/images/emptyCart.svg";
-import { TweenMax, TimelineLite, Power2 } from "gsap";
+import { TimelineLite, Power2 } from "gsap";
 
-export default function EmptyCart(props) {
+export default function EmptyCart() {
     let { image, title, info } = React.createRef();
 
     useEffect(() => {

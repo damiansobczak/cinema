@@ -60,42 +60,4 @@
             opacity: 0;
         }
     }
-
-    &__legend {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $color-bg;
-        padding: 16px 32px;
-        color: $color-text-primary;
-        margin-top: 32px;
-        border-radius: 8px;
-
-        &__item {
-            display: flex;
-            align-items: center;
-
-            &:nth-child(2) {
-                margin: 0 24px;
-            }
-
-            .icon-seat {
-                margin-right: 8px;
-                color: #46475E;
-                font-size: 1.5rem;
-            }
-
-            &--reservation {
-                .icon-seat {
-                    opacity: 0.3;
-                }
-            }
-
-            &--selection {
-                .icon-seat {
-                    color: #B1B4F2;
-                }
-            }
-        }
-    }
 }

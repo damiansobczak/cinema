@@ -68,7 +68,8 @@
         color: #fff;
         font-weight: 600;
         font-size: $font-200;
-        max-width: 70px;
+        max-width: 92px;
+        box-sizing: border-box;
     }
 
     &__highlight {

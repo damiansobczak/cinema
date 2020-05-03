@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Menu.scss";
 
-export default function Menu(props) {
+export const Menu = memo((props) => {
     return (
         <div className="menu">
             <ul className="menu__items">
@@ -28,4 +28,4 @@ export default function Menu(props) {
             </ul>
         </div>
     );
-}
+});

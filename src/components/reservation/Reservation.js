@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 import "./Reservation.scss";
-import FilmCart from "../filmCart/FilmCart";
+import { FilmCart } from "../filmCart/FilmCart";
 import SeatsCart from "../seatsCart/SeatsCart";
 import ReservationSummary from "../reservationSummary/ReservationSummary";
 import { TimelineLite, TweenMax, Power2 } from "gsap";
 
-export default function Reservation() {
+export const Reservation = memo(() => {
     let ref = React.createRef();
 
     useEffect(() => {
@@ -27,4 +27,4 @@ export default function Reservation() {
             <ReservationSummary action="Payment" price="$20" />
         </div>
     );
-}
+});

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Breadcrumbs.scss";
 
-export default function Breadcrumbs() {
+export const Breadcrumbs = memo(() => {
     return (
         <div className="breadcrumbs">
             <div className="breadcrumbs__indicator">You are here <span className="icon-arrow-right"></span> </div>
@@ -11,4 +11,4 @@ export default function Breadcrumbs() {
             </div>
         </div>
     );
-}
+});

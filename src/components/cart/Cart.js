@@ -1,11 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, memo } from "react";
 import "./Cart.scss";
-import Reservation from "../reservation/Reservation";
+import { Reservation } from "../reservation/Reservation";
 import EmptyCart from "../emptyCart/EmptyCart";
-import Payment from "../payment/Payment";
+import { Payment } from "../payment/Payment";
 import { StateContext } from "../../StateContext";
+import { useEffect } from "react";
 
-export default function Cart() {
+export const Cart = memo(() => {
     const { payment, film } = useContext(StateContext);
 
     function getView() {
@@ -23,4 +24,4 @@ export default function Cart() {
             {getView()}
         </div>
     );
-}
+});

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Navbar.scss";
 import Logo from "../../assets/images/logo.svg";
 import Avatar from "../../assets/images/avatar.png";
 
-export default function Navbar() {
+export const Navbar = memo(() => {
     return (
         <div className="navbar">
             <img className="navbar__logo" src={Logo} alt="Cinema Studio" />
@@ -19,4 +19,4 @@ export default function Navbar() {
             </div>
         </div>
     );
-}
+});

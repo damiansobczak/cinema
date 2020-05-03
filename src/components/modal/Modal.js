@@ -10,7 +10,7 @@ export default function Modal() {
 
     useEffect(() => {
         const Tween = new TimelineLite();
-        Tween.from(modalWrapperRef, 0.3, { ease: Power2.easeInOut, opacity: 0 })
+        Tween.to(modalWrapperRef, 0.3, { ease: Power2.easeInOut, opacity: 1 })
             .from(modalRef, 0.4, { ease: Power2.easeInOut, y: 30, opacity: 0 }, "-=0.15");
     }, []);
 

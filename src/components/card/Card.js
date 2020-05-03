@@ -1,19 +1,17 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import CardImage from "../../assets/images/card.svg";
 import "./Card.scss";
 import { gsap, TimelineLite, Power2 } from "gsap";
 import { StateContext } from "../../StateContext";
+import { useHighlightCard } from "../../hooks/useHighlightCard";
+import { useCardValidation } from "../../hooks/useCardValidation";
 
-export default function Card(props) {
+export default function Card() {
     const { fillCard } = useContext(StateContext);
-    let { cardPlaceholder, number, owner, date, card } = React.createRef();
-    let { numberOnCard, ownerOnCard, dateOnCard } = React.createRef();
+    let { cardPlaceholder, number, owner, date, card } = useRef(null);
 
-    const [cardNumber, setCardNumber] = useState('**** **** **** 0000');
-    const [cardOwner, setCardOwner] = useState('Jan Kowalski');
-    const [cardDate, setCardDate] = useState('05/22');
-    const [cardState, setCardState] = useState({});
-    const [highlight, setHighlight] = useState({ left: '16px', top: '60px' });
+    const [highlight, setHighlightPos] = useHighlightCard();
+    const [cardInput, setCardInput] = useCardValidation('**** **** **** 0000', 'Jan Kowalski', '05/22');
 
     useEffect(() => {
         gsap.set(card, { opacity: 1, delay: 0.2 });
@@ -22,41 +20,40 @@ export default function Card(props) {
     }, []);
 
     useEffect(() => {
-        setCardState({
-            number: cardNumber,
-            owner: cardOwner,
-            date: cardNumber
+        fillCard({
+            number: cardInput.number,
+            owner: cardInput.owner,
+            date: cardInput.date
         });
-        fillCard(cardState);
-    }, [[cardNumber, cardOwner, cardDate].join(",")]);
+    }, [[cardInput.number, cardInput.owner, cardInput.date].join(",")]);
 
     return (
         <div className="card" ref={e => card = e}>
             <div className="card__placeholder" ref={e => cardPlaceholder = e}>
                 <img src={CardImage} alt="Card payment details" className="card__image" />
-                <div className="card__number" ref={e => numberOnCard = e}>{cardNumber}</div>
+                <div className="card__number">{cardInput.number}</div>
                 <div className="card__owner" >
                     <div className="card__label">Owner</div>
-                    <div className="card__value" ref={e => ownerOnCard = e}>{cardOwner}</div>
+                    <div className="card__value">{cardInput.owner}</div>
                 </div>
                 <div className="card__expire">
                     <div className="card__label">Expire Date</div>
-                    <div className="card__value" ref={e => dateOnCard = e}>{cardDate}</div>
+                    <div className="card__value">{cardInput.date}</div>
                 </div>
                 <div className="card__highlight" style={highlight}></div>
             </div>
 
             <div className="card__group" ref={e => number = e}>
                 <label htmlFor="card__input">Card Number</label>
-                <input id="card__input" type="text" className="card__input" onFocus={() => setHighlight({ left: '16px', top: '60px' })} onChange={e => setCardNumber(e.target.value.replace(/\d{4}(?!$)/gi, '**** '))} />
+                <input id="card__number" type="text" name="cardNumber" className="card__input" onFocus={(e) => setHighlightPos(e)} onChange={e => setCardInput(e)} />
             </div>
             <div className="card__group" ref={e => owner = e}>
                 <label htmlFor="card__input">Owner</label>
-                <input id="card__input" type="text" className="card__input" onFocus={() => setHighlight({ left: `16px`, top: `120px`, width: `150px` })} onChange={e => setCardOwner(e.target.value)} />
+                <input id="card__owner" type="text" name="cardOwner" className="card__input" onFocus={(e) => setHighlightPos(e)} onChange={e => setCardInput(e)} />
             </div>
             <div className="card__group" ref={e => date = e}>
                 <label htmlFor="card__input">Expire Date</label>
-                <input id="card__input" type="text" className="card__input" onFocus={() => setHighlight({ left: `178px`, top: `120px`, width: `70px` })} onChange={e => setCardDate(e.target.value.replace(/(\d{2})\/?(\d{2}).*/, '$1/$2'))} />
+                <input id="card__date" type="text" name="cardDate" className="card__input" onFocus={(e) => setHighlightPos(e)} onChange={e => setCardInput(e)} />
             </div>
         </div>
     );
