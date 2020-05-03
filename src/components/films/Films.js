@@ -28,7 +28,7 @@ export default function Films(props) {
 
     return (
         <div className="films" ref={films}>
-            {state.films ? state.films.map((film, index) => <Film key={film.id} id={film.id} poster={film.poster} title={film.title} desc={film.desc} duration={film.duration} director={film.director} showTime={film.showTime} forwardRef={() => elements[index] = React.createRef()} />) : ''}
+            {state.films ? state.films.map((film, index) => <Film key={film.id} {...film} forwardRef={() => elements[index] = React.createRef()} />) : ''}
         </div>
     );
 }
